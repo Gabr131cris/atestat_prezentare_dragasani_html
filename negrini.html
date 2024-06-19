@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+    <link rel="stylesheet" href="assets/css/muzeu.css" />
+
+    <style>
+        * {
+            box-sizing: border-box
+        }
+        
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 0
+        }
+        
+        .mySlides {
+            display: none
+        }
+        
+        img {
+            vertical-align: middle;
+        }
+        /* Slideshow container */
+        
+        .slideshow-container {
+            max-width: 1280px;
+            position: relative;
+            margin: auto;
+        }
+        /* Next & previous buttons */
+        
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+        
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+        
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        
+        @-webkit-keyframes fade {
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
+        }
+        
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
+        }
+        
+        @media only screen and (max-width: 300px) {
+            .prev,
+            .next,
+            .text {
+                font-size: 11px
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="assets/css/meniu.css" />
+
+    <div class="navbar">
+
+        <a href="despre.html">Despre</a>
+        <div class="dropdown">
+            <button class="dropbtn">Crame
+        <i class="fa fa-caret-down"></i>
+      </button>
+            <div class="dropdown-content">
+
+                <div class="row">
+                    <div class="column">
+
+                        <a href="avincis.html">Avincis</a>
+                        <a href="iordache.html">Casa de Vinuri Iordache</a>
+                        <a href="sparleni.html">Crama Sparleni</a>
+                    </div>
+                    <div class="column">
+
+                        <a href="bauer.html">Crama Bauer</a>
+                        <a href="stirbey.html">Crama Stirbey</a>
+                        <a href="sandu.html">Via Sandu</a>
+                    </div>
+                    <div class="column">
+
+                        <a href="negrini.html">Crama Negrini</a>
+                        <a href="dragasi.html">Domeniul Dragasi</a>
+                        <a href="isarescu.html">Casa Isarescu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="muzeu.html">Muzeu</a>
+        <a href="istorie.html">Istorie Oras</a>
+        <a href="index.html">Acasa</a>
+    </div>
+
+
+    <title>Prezentare Dragasani</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 2</div>
+            <img src="images/negrini1.jpg" style="width:100%">
+
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 2</div>
+            <img src="images/negrini2.jpg" style="width:100%">
+
+        </div>
+
+
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+
+    <div id="main">
+        <class class="inner">
+
+            <!-- Boxes -->
+            <div class="thumbnails">
+
+                <div class="istorie">
+
+                    <div class="inner">
+                        <h3>Crama Negrini</h3>
+                        <p>
+                            În 1990, Casa de Vinuri Negrini a cumpărat fosta proprietate a generalului Teodrini, ilustru personaj în istoria interbelică a României, proprietate cu amprenta istorică din podgoria Drăgășani. Achiziția cuprindea 10ha, dintre care 7ha plantate cu viță
+                            de vie și restul cu o pădure urcată pe vârful unui deal. În mijlocul proprietății se află un conac și o cramă. Aici, Casa de Vinuri Negrini are replantat via cu Fetească Regală, Sauvignon Blanc, Cabernet Sauvignon, Merlot si
+                            Negru de Drăgășani.
+                        </p>
+                        <p>
+                            Vinul podgoriilor Drăgășani este făcut din ciorchinii de struguri desfătați la soare, adormiți la lumina lunii și treziți în roua dimineții. Alegem cu mare grijă cei mai copți și aromați dintre ei, pentru ca tu să te bucuri de savoarea unui vin autentic
+                            românesc. Noi vă spunem că toate acestea oferă condiții prielnice pentru boabe de struguri de cea mai înaltă calitate pe care le folosim în meșteșugirea vinurilor Negrini.
+                        </p>
+
+
+
+                        <a href="https://www.negrini.ro/" class="button style3 fit">Acceseaza site-ul Negrini</a>
+                    </div>
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+    </div>
+    <footer id="footer">
+        <div class="inner">
+            <h2>Site atestat</h2>
+
+
+
+            <p class="copyright">&copy; Creator site: Farcas Cristian Gabriel.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
